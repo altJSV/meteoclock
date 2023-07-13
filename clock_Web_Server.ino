@@ -125,7 +125,7 @@ void HandleClient()
   webpage += "<h2><br>&nbsp;&nbsp;&nbsp;&nbsp;" + String(dispRain) + " %</h2><br>\n";
   
   webpage += "<div class=\"floatclear\"></div>\n<p><br>&nbsp;&nbsp;&nbsp;&nbsp; RTC:" + printDigits(now.hour()) + ":" + printDigits(now.minute()) + ":"  + printDigits(now.second()) + " &nbsp;&nbsp;" + daysOfTheWeek[now.dayOfTheWeek()];
-  webpage += " &nbsp;" + printDigits(now.day()) + "/" + printDigits(now.month()) + "/"  + String(now.year()) + "</p>&nbsp;&nbsp;\n";
+  webpage += " &nbsp;" + printDigits(now.day()) + "/" + printDigits(now.month()) + "/"  + String(now.year()-48) + "</p>&nbsp;&nbsp;\n";
 
   webpage += "<p>&nbsp;&nbsp;&nbsp;&nbsp; NTP:" + printDigits(ntp.hour()) + ":" + printDigits(ntp.minute()) + ":"  + printDigits(ntp.second()) + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n";
   webpage += " &nbsp;" + printDigits(ntp.day()) + "/" + printDigits(ntp.month()) + "/"  + String(ntp.year()) + "</p>&nbsp;&nbsp;\n";

@@ -932,6 +932,11 @@ void setup() {
     setSyncProvider(getNtpTime);
     setSyncInterval(60);*/
     ntp.begin();
+    byte tries=10;
+    while (ntp.updateNow()!=0 & tries>0)
+    {
+      tries--;
+    }
     if (ntp.synced())
       {
         SetTimeDateAndDate(ntp.second(),ntp.minute(),ntp.hour(),ntp.dayWeek(),ntp.day(),ntp.month(),ntp.year());
@@ -1075,6 +1080,11 @@ void loop() {
       if (testTimer(WEBsyncTimerD, WEBsyncTimer)) server.handleClient();
        if (testTimer(ntpTimerD, ntpTimer)) 
        {
+         byte tries=10;
+         while (ntp.updateNow()!=0 & tries>0)
+         {
+         tries--;
+        } 
         if (ntp.synced())
           {
             SetTimeDateAndDate(ntp.second(),ntp.minute(),ntp.hour(),ntp.dayWeek(),ntp.day(),ntp.month(),ntp.year());

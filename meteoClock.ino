@@ -924,13 +924,8 @@ void setup() {
     lcd.print(F(" OK"));
     Serial.print("IP number assigned by DHCP is ");
     Serial.println(WiFi.localIP());
-    /*Serial.println("Starting UDP");
-    Udp.begin(localPort);
-    Serial.print("Local port: ");
-    Serial.println(Udp.localPort());
-    Serial.println("waiting for sync");
-    setSyncProvider(getNtpTime);
-    setSyncInterval(60);*/
+    if (WiFi.getAutoConnect() != true) WiFi.setAutoConnect(true);  //on power-on automatically connects to last used hwAP
+    WiFi.setAutoReconnect(true); 
     ntp.begin();
     byte tries=10;
     while (ntp.updateNow()!=0 & tries>0)
